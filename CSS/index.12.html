@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>desafio menu flexbox</title>
+    <title>desafio menu</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -15,13 +15,13 @@
             background-color: #ddd;
             margin: 0;
             padding: 0;
-            font-family: 'Oswald', sans-serif ;
+            font-family: 'Oswald'
         }
         .cabecalho{
             background-color: #333;
             border-bottom: solid 5px #4faddb;
             height: 80px;
-            color: #fff;
+            box-sizing: content-box;
 
         }
         .cabecalho a {
@@ -29,11 +29,26 @@
             color: #eee;
             text-decoration: none;
             font-size: 1.3em;
-            padding: 10px 15px;
+        }
+        .logo{
+            display: inline-block;
+            height: 80px;
+            padding: 15px;
         }
         .logo img {
-            height: 50px;
+            height: 100%;
         }
+        .menu-toggle{
+            float: right;
+            background-color: #555;
+            color: #eee;
+            border: solid 1px #777;
+            border-radius: 5px;
+            height: 40px;
+            padding: 10px 15px;
+            margin: 20px 15px;
+        }
+
 
         .menu{
            display: inline-block;
@@ -42,9 +57,14 @@
            padding: 25px;
         }
         .menu ul{
-            margin: 0;
-            padding: 0;
-            list-style: none;
+            margin: 0; padding: 0
+            }
+        .menu li {
+            display: inline-block;
+        }
+        .menu a{
+            padding: 15px;
+
         }
         .menu a:hover,
         .menu a.selected{
@@ -52,7 +72,14 @@
             color: #000;
 
         }
-        .cabecalho .botao{
+        .autenticacao {
+            float:right;
+            height: 80px;
+            padding: 25px;
+        }
+        .autenticacao a{
+        }
+        .botao{
             border-radius: 30px;
             padding: 10px 25px;
             margin: 10px;
@@ -60,19 +87,20 @@
         .destaque{
             background-color: #f00;
         }
-
-        /* ============Flex Box ======= */
-        .cabecalho {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        @media (min-width: 679px){
+            .menu-toggle{
+                display: none;
+            }
         }
-        .menu {
-            flex-grow: 10;
+        @media (max-width: 680px){
+            .menu{
+                display: none;
+            }
         }
-        .menu ul {
-            display: flex;
-
+        @media (max-width: 910px){
+            .autenticacao{
+                display: none;
+            }
         }
 
     </style>
@@ -84,6 +112,9 @@
                 <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo">
             </a>
         </div>
+        <button class="menu-toggle">
+            <i class="fa fa-lg fa-bars"></i>
+        </button>
         <nav class="menu">
             <ul>
                 <li><a class="" href="#inicio">Inicio</a></li>
